@@ -1,0 +1,57 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd 
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- must be change especially com.ai is pack name that have controller -->
+	<!--first search the controller in the controller package as below -->
+	<context:component-scan
+		base-package="boundary_of_law.Controllers" />
+
+	<!-- view is folder in WEB-INF -->
+	<!-- second search the view as in the below format -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- <mvc:resources mapping="resources/**"
+		location="/WEB-INF/resources/"></mvc:resources>
+		<mvc:annotation-driven />
+	<mvc:annotation-driven
+		conversion-service="conversionService"/> -->
+		
+<!-- 		<mvc:annotation-driven -->
+<!-- 		conversion-service="conversionService1"/> -->
+
+	<bean id="systemUserRepo"
+		class="boundary_of_law.persistance.SystemUserRepo"></bean>
+	<!-- <bean id="endUserRepo"
+		class="student_registeration.persistance.CourseRepository"></bean>
+	<bean id="userRepo"
+		class="student_registeration.persistance.UserRepository"></bean>
+	<bean id="eduRepo"
+		class="student_registeration.persistance.EducationRepository"></bean> -->
+
+	<!-- <bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+			<set>
+				<bean class="student_registeration.formatters.CourseFormatter"></bean>
+			</set>
+		</property>
+	</bean> -->
+	
+
+	<!--id is in the BookController and class is the Repository file -->
+</beans>
