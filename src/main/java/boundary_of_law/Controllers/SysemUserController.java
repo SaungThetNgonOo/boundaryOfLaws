@@ -1,9 +1,13 @@
 package boundary_of_law.Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import boundary_of_law.models.SystemUser;
 import boundary_of_law.persistance.SystemUserRepo;
 
 @Controller
@@ -12,13 +16,13 @@ public class SysemUserController {
 	SystemUserRepo systemUserRepo;
 	
 	// displayBookServlet
-//		@RequestMapping("systemusers")
-//		public String displayAll(ModelMap map) {
-//			List<Author> authors = authorRepo.getAll();
-//
-//			map.addAttribute("authors", authors);// model
-//			return "display_author";// view
-//		}
+		@RequestMapping("systemusers")
+		public String displayAll(ModelMap map) {
+			List<SystemUser> systemusers = systemUserRepo.getAll();
+
+			map.addAttribute("systemusers", systemusers);// model
+			return "systemUserDisplay";// view
+		}
 		//get are write to the appear form
 //		@GetMapping("addauthor")
 //		public ModelAndView addAuthor() {
