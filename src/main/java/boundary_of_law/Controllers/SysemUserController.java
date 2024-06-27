@@ -23,6 +23,13 @@ public class SysemUserController {
 			map.addAttribute("systemusers", systemusers);// model
 			return "systemUserDisplay";// view
 		}
+		@RequestMapping("lawDisplay")
+		public String displayLaw(ModelMap map) {
+			List<SystemUser> systemusers = systemUserRepo.getAll();
+
+			map.addAttribute("systemusers", systemusers);// model
+			return "lawdisplay";// view
+		}
 		//get are write to the appear form
 //		@GetMapping("addauthor")
 //		public ModelAndView addAuthor() {
