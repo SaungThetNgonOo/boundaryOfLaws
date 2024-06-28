@@ -1,0 +1,10 @@
+@charset "UTF-8";
+.login-body{
+    
+}
+.login{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    background-image: linear-gradient(to right, #55bd9a 0%, #6d44e7 21%, #5cdfb3 100%);
+}
