@@ -11,7 +11,7 @@
     http://www.springframework.org/schema/mvc/spring-mvc.xsd
     http://www.springframework.org/schema/context
            http://www.springframework.org/schema/context/spring-context.xsd">
-           
+
 	<context:component-scan
 		base-package="boundary_of_law.Controllers" />
 
@@ -25,18 +25,33 @@
 		location="/WEB-INF/resources/"></mvc:resources>
 	<mvc:resources mapping="assets/**"
 		location="/WEB-INF/assets/"></mvc:resources>
-		
-		<mvc:annotation-driven />
-		
-	<!-- <mvc:annotation-driven
-		conversion-service="conversionService"/> -->
-		
-<!-- 		<mvc:annotation-driven -->
-<!-- 		conversion-service="conversionService1"/> -->
-
+	<mvc:annotation-driven />
 	<bean id="systemUserRepo"
 		class="boundary_of_law.persistance.SystemUserRepo"></bean>
+<<<<<<< HEAD
 		<bean id="enduserRepo"
 		class="boundary_of_law.persistance.EndUserRepository"></bean>
+=======
+	<bean id="pdfFileRepository"
+		class="boundary_of_law.persistance.PdfFileRepository"></bean>
+
+	<!-- Multipart Resolver Bean -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="20848820" /> <!-- 20MB -->
+		<property name="maxUploadSizePerFile" value="10485760" /> <!-- 10MB -->
+	</bean>
+>>>>>>> b9168f1a7bc7809b6954badc522b1d08ebed2c9c
 	
+	    
+	
+
+
+	<!-- <mvc:annotation-driven conversion-service="conversionService"/> -->
+
+	<!-- <mvc:annotation-driven -->
+	<!-- conversion-service="conversionService1"/> -->
+
+
+
 </beans>

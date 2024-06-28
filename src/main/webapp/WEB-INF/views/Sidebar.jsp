@@ -16,7 +16,7 @@
 					</a>
 					<hr class="text-white d-none d-sm-block" />
 					<ul class="nav nav-pills flex-column mt-2 mt-sm-0 " id="menu">
-						<li class="nav-item my-1"><a href="lawDisplay"
+						<li class="nav-item my-1"><a href="#"
 							class="nav-link text-white text-center text-sm-start"
 							aria-current="page"> <i class="fa-solid fa-gauge"></i> <span
 								class="ms-2 d-none d-sm-inline">Laws management</span>
@@ -50,6 +50,7 @@
 								class="ms-2 d-none d-sm-inline">CaseType management</span>
 						</a></li>
 					</ul>
+					<a href="/boundaryOfLaws/pdf">Click</a>
 				</div>
 				<div>
 					<div class="dropdown open">
