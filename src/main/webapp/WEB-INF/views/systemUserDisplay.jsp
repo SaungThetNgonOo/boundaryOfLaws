@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="resources/css/style.css" />
 </head>
 <body>
-	<div>
+	<div >
 		<jsp:include page="Nav.jsp"></jsp:include>
 		<div class="container-fluid">
 	
