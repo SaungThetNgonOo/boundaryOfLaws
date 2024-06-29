@@ -21,7 +21,7 @@
 							aria-current="page"> <i class="fa-solid fa-gauge"></i> <span
 								class="ms-2 d-none d-sm-inline">Laws management</span>
 						</a></li>
-						<li class="nav-item my-1"><a href="#"
+						<li class="nav-item my-1"><a href="/boundaryOfLaws/enduser"
 							class="nav-link text-white" aria-current="page"> <i
 								class="fa-solid fa-house"></i> <span
 								class="ms-2 d-none d-sm-inline">EndUser management</span>
