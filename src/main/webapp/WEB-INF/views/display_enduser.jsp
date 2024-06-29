@@ -39,7 +39,7 @@
 				<div class="col">${enduser.gender}</div>
 				<div class="col">${enduser.status}</div>
 				<div class="col">
-				<a href="edituser">Edit</a>
+				
 				<a href="delete">Delete</a>
 				</div>
 				
