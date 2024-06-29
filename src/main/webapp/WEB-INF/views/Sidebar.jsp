@@ -5,10 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.color{
+    background-image: linear-gradient(to right, #000080 21%, #A9A9A9 100%);
+}
+</style>
 </head>
 <body>
 	<div
-				class="d-flex flex-column justify-content-between col-auto bg-dark min-vh-100">
+				class="d-flex flex-column justify-content-between color col-auto min-vh-100">
 				<div class="mt-4">
 					<a
 						class="text-white d-none d-sm-inline text-decoration-none d-flex align-items-center ms-4"
