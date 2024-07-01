@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +40,7 @@
 							</div>
 							<button type="submit" class="btn btn-primary">Upload</button>
 						</form>
-						
+
 
 						<!-- Table for displaying PDF files -->
 						<table class="table table-striped">
@@ -55,12 +57,17 @@
 										<td>${pdf.id}</td>
 										<td>${pdf.name}</td>
 										<td><a href="/boundaryOfLaws/download/${pdf.id}"
-											class="btn btn-sm btn-info">Download</a>
-													<a href="${pdf.content}">Cli</a>
-											 <a
+											class="btn btn-sm btn-info">Download</a> <a
+											href="${pageContext.request.contextPath}/file?id=${pdf.id}"
+											class="btn btn-sm btn-info" target="_blank">View</a> <a
 											href="/boundaryOfLaws/delete/${pdf.id}"
-											class="btn btn-sm btn-danger">Delete</a></td>
+											class="btn btn-sm btn-danger">Delete</a> 
+											
+											 <a
+											href="/boundaryOfLaws/edit/${pdf.id}"
+											class="btn btn-sm btn-info">Edit</a> 
 									</tr>
+								
 								</c:forEach>
 							</tbody>
 						</table>

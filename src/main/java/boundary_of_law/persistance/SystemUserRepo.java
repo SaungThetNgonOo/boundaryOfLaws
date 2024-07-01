@@ -7,7 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import boundary_of_law.models.SystemUser;
+import boundary_of_law.models.Login;
+import boundary_of_law.models.User;
 
 public class SystemUserRepo {
 	public static Connection con = null;
@@ -15,41 +16,46 @@ public class SystemUserRepo {
 		con = MyConnection.getConnection();
 	}
 	//insert
-	public int add(SystemUser systemuser) {
+	public int add(User user) {
 		int result=0;
-		String sql="INSERT INTO systemUser(id,name,password,email,phone) VALUES (?,?,?,?,?)";
+		String sql="INSERT INTO user(user_id,name,password,email,phone,gender,NRC,role) VALUES (?,?,?,?,?,?,?,?)";
 		try {
 			PreparedStatement ps=con.prepareStatement(sql);
-			ps.setInt(1,systemuser.getId());
-			ps.setString(2, systemuser.getName());
-			ps.setString(3, systemuser.getPassword());
-			ps.setString(4, systemuser.getEmail());
-			ps.setString(5, systemuser.getPhone());
+			ps.setInt(1,user.getUser_id());
+			ps.setString(2, user.getName());
+			ps.setString(3, user.getPassword());
+			ps.setString(4, user.getEmail());
+			ps.setString(5, user.getPhone());
+			ps.setString(6, user.getGender());
+			ps.setString(7, user.getNRC());
+			ps.setString(8, user.getRole());
 			result=ps.executeUpdate();
 		}catch(SQLException e) {
 			result=0;
-			System.out.println("systemUser insert err: "+e);
+			System.out.println("User insert err: "+e);
 		}
 		return result;
 	}
 	
 	//update
-	public int edit(SystemUser systemuser) {
+	public int edit(User user) {
 		int result=0;
-		String sql="UPDATE systemUser SET name=?, password=?, email=?, phone=? WHERE id=?";
+		String sql="UPDATE user SET name=?, password=?, email=?, phone=?, gender=?, NRC=?, role=? WHERE user_id=?";
 		try {
 			PreparedStatement ps=con.prepareStatement(sql);
-			ps.setString(1, systemuser.getName());
-			ps.setString(2, systemuser.getPassword());
-			ps.setString(3, systemuser.getEmail());
-			ps.setString(4, systemuser.getPhone());
-			
-			ps.setInt(5, systemuser.getId());
+			ps.setString(1, user.getName());
+			ps.setString(2, user.getPassword());
+			ps.setString(3, user.getEmail());
+			ps.setString(4, user.getPhone());
+			ps.setString(5, user.getGender());
+			ps.setString(6, user.getNRC());
+			ps.setString(7, user.getRole());
+			ps.setInt(8, user.getUser_id());
 			
 			result=ps.executeUpdate();
 		}catch(SQLException e) {
 			result=0;
-			System.out.println("systemUser edit err: "+e);
+			System.out.println("User edit err: "+e);
 		}
 		return result;
 	}
@@ -57,7 +63,7 @@ public class SystemUserRepo {
 	//delete
 		public int delete(int id) {
 			int result=0;
-			String sql="DELETE FROM systemUser WHERE id=?";
+			String sql="DELETE FROM user WHERE user_id=?";
 			try {
 				PreparedStatement ps=con.prepareStatement(sql);
 				ps.setInt(1, id);
@@ -65,77 +71,85 @@ public class SystemUserRepo {
 				
 			}catch(SQLException e) {
 				result=0;
-				System.out.println("systemUser delete err: "+e);
+				System.out.println("User delete err: "+e);
 			}
 			return result;
 		}
 		
 		//getAll
-		public List<SystemUser>getAll(){
-			List<SystemUser> systemusers=new ArrayList<>();
-			String sql="SELECT * FROM systemUser";
+		public List<User>getAll(){
+			List<User> users=new ArrayList<>();
+			String sql="SELECT * FROM user";
 			try {
 				PreparedStatement ps=con.prepareStatement(sql);
 				ResultSet rs=ps.executeQuery();
 				while(rs.next()) {
-					SystemUser systemuser=new SystemUser();
-					systemuser.setId(rs.getInt("id"));
-					systemuser.setName(rs.getString("name"));
-					systemuser.setPassword(rs.getString("password"));
-					systemuser.setEmail(rs.getString("email"));
-					systemuser.setPhone(rs.getString("phone"));
-					systemusers.add(systemuser);
+					User user=new User();
+					user.setUser_id(rs.getInt("user_id"));
+					user.setName(rs.getString("name"));
+					user.setPassword(rs.getString("password"));
+					user.setEmail(rs.getString("email"));
+					user.setPhone(rs.getString("phone"));
+					user.setGender(rs.getString("gender"));
+					user.setNRC(rs.getString("NRC"));
+					user.setRole(rs.getString("role"));
+					users.add(user);
 				}
 				
 			}catch(SQLException e) {
-				System.out.println("systemUser selec err: "+e);
+				System.out.println("User selec err: "+e);
 			}
-			return systemusers;
+			return users;
 		}
 		
 		//getByCode == getOne
-		public SystemUser getById(int id) {
-			SystemUser systemuser=null;//initially null
-			String sql="SELECT * FROM systemUser WHERE id=?";
+		public User getById(int id) {
+			User user=null;//initially null
+			String sql="SELECT * FROM user WHERE user_id=?";
 			try {
 				PreparedStatement ps=con.prepareStatement(sql);
 				ps.setInt(1, id);
 				ResultSet rs=ps.executeQuery();
 				while(rs.next()) {
-					systemuser=new SystemUser();
-					systemuser.setId(rs.getInt("id"));
-					systemuser.setName(rs.getString("name"));
-					systemuser.setPassword(rs.getString("password"));
-					systemuser.setEmail(rs.getString("email"));
-					systemuser.setPhone(rs.getString("phone"));
+					user=new User();
+					user.setUser_id(rs.getInt("user_id"));
+					user.setName(rs.getString("name"));
+					user.setPassword(rs.getString("password"));
+					user.setEmail(rs.getString("email"));
+					user.setPhone(rs.getString("phone"));
+					user.setGender(rs.getString("gender"));
+					user.setNRC(rs.getString("NRC"));
+					user.setRole(rs.getString("role"));
 				}
 				
 			}catch(SQLException e) {
-				System.out.println("systemUser getByCode err: "+e);
+				System.out.println("User getByCode err: "+e);
 			}
-			return systemuser;
+			return user;
 		}
-		//GetNameByBookCode
-//		public List<Author> getAuthorsByBookCode(String code) {
-//			List<Author> authors=new ArrayList<>();
-//			String sql="SELECT a.* FROM author a inner join book_has_author ba on a.id=ba.author_id where ba.book_code=?";
-//			try {
-//				PreparedStatement ps=con.prepareStatement(sql);
-//				ps.setString(1, code);
-//				ResultSet rs=ps.executeQuery();
-//				while(rs.next()) {
-//					Author author=new Author();
-//					author.setId(rs.getInt("id"));
-//					author.setName(rs.getString("name"));
-//					author.setAddress(rs.getString("address"));
-//					author.setCopyright_contact(rs.getString("copyright_contact"));
-//					author.setContact_email(rs.getString("contact_email"));
-//					authors.add(author);
-//				}
-//				
-//			}catch(SQLException e) {
-//				System.out.println("author getAuthorsByBookCode err: "+e);
-//			}
-//			return authors;
-//		}
-}
+		public User getByLogin(Login login) {
+			User user=new User();
+			
+			String sql="SELECT * FROM user where email=? and password=?";
+			try {
+				PreparedStatement ps=con.prepareStatement(sql);
+				ps.setString(1, login.getEmail());
+				ps.setString(2, login.getPassword());
+				ResultSet rs=ps.executeQuery();
+				while(rs.next()) {
+					user.setUser_id(rs.getInt("user_id"));
+					user.setName(rs.getString("name"));
+					user.setPassword(rs.getString("password"));
+					user.setEmail(rs.getString("email"));
+					user.setPhone(rs.getString("phone"));
+					user.setGender(rs.getString("gender"));
+					user.setNRC(rs.getString("NRC"));
+					user.setRole(rs.getString("role"));
+				}
+				
+			}catch(SQLException e) {
+				System.out.println("User getByLogin err: "+e);
+			}
+			return user;
+		}
+  }
