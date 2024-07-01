@@ -11,7 +11,7 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-<link rel="stylesheet" href="resources/css/style.css" />
+<link rel="stylesheet" href="resources/css/style.css"/>
 <body>
 <div >
 		<jsp:include page="Nav.jsp"></jsp:include>
@@ -23,28 +23,33 @@
 				<h3>All EndUsers</h3>
 	<div class="container">
 		<a href="/boundaryOfLaws/addenduser">Create Enduser </a>
-		<div class="row">
-			<div class="col">Id</div>
-			<div class="col">UserName</div>
-			<div class="col">Current_state</div>
-			<div class="col">Gender</div>
-			<div class="col">status</div>
-			<div class="col"></div>
-		</div>
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">UserNames</th>
+      <th scope="col">Current_State</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Status</th>
+      <th scope="col"></th>
+      
+    </tr>
+  </thead>
 		<c:forEach var="enduser" items="${endusers}">
-			<div class="row">
-				<div class="col">${enduser.id}</div>
-				<div class="col">${enduser.name}</div>
-				<div class="col">${enduser.current_state}</div>
-				<div class="col">${enduser.gender}</div>
-				<div class="col">${enduser.status}</div>
-				<div class="col">
-				
-				<a href="delete">Delete</a>
-				</div>
-				
-			</div>
+			 <tbody>
+    <tr>
+      <th scope="row">${enduser.id}</th>
+      <td>${enduser.name}</td>
+      <td>${enduser.current_state}</td>
+      <td>${enduser.gender}</td>
+      <td>${enduser.status}</td>
+      <td><a href="delete">Delete</a>
+      </td>
+      
+    </tr>
+    </tbody>
 		</c:forEach>
+		</table>
 	</div>
 			</div>
 		</div>
