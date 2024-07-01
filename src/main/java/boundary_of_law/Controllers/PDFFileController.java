@@ -5,13 +5,17 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import boundary_of_law.persistance.PdfFileRepository;
 import boundary_of_law.models.PDFFile;
@@ -71,8 +75,20 @@ public class PDFFileController {
         }
     }
 
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@PathVariable Long id, Model model) {
+        try {
+            PDFFile pdfFile = pdfFileRepository.getFile(id);
+            model.addAttribute("pdfFile", pdfFile);
+            return "editfile";
+        } catch (Exception e) {
+            model.addAttribute("errorMessage", "File not found");
+            return "editfile";
+        }
+    }
+    
     // Update
-    @PutMapping("/update/{id}")
+    @PostMapping("/update/{id}")
     public ResponseEntity<String> updateFile(@PathVariable Long id, @RequestParam("file") MultipartFile file) {
         try {
             PDFFile pdfFile = new PDFFile();
@@ -98,6 +114,22 @@ public class PDFFileController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to delete file!");
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+    
+    @GetMapping("/file")
+    public void getFile(@RequestParam("id") int id, HttpServletResponse response) throws IOException {
+        byte[] fileContent = pdfFileRepository.getFileContent(id);
+
+        if (fileContent != null) {
+            response.setContentType("application/pdf");
+            response.setContentLength(fileContent.length);
+
+            try (OutputStream out = response.getOutputStream()) {
+                out.write(fileContent);
+            }
+        } else {
+            response.sendError(HttpServletResponse.SC_NOT_FOUND); // 404 if file not found
         }
     }
 }
