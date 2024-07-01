@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container">
-            <form:form class="login w-50 h-50 p-5 d-flex flex-column w-50 bg-info rounded-2" action="/boundaryOfLaws/systemusers" method="post" modelAttribute="systemusers">
+            <form:form class="login w-50 h-50 p-5 d-flex flex-column w-50 bg-info rounded-2" action="/boundaryOfLaws/systemusers" method="post" modelAttribute="user">
                 <div class="m-2 form-group pt-5 d-flex justify-content-center">
                   <form:label path="email" class="w-25">Email:</form:label>
                   <form:input path="email" type="text" class=""  ></form:input>

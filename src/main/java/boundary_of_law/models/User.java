@@ -1,24 +1,27 @@
 package boundary_of_law.models;
 
-public class SystemUser {
-	private int id;
+public class User {
+	private int user_id;
 	private String name;
 	private String password;
 	private String email;
 	private String phone;
+	private String gender;
+	private String NRC;
+	private String role;
 	
-	public void SytemUer() {
+	public User() {
 		
 	}
 
-	public int getId() {
-		return id;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -50,5 +53,30 @@ public class SystemUser {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getNRC() {
+		return NRC;
+	}
+
+	public void setNRC(String nRC) {
+		NRC = nRC;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 	
 }
