@@ -28,6 +28,8 @@
 	<mvc:annotation-driven />
 	<bean id="systemUserRepo"
 		class="boundary_of_law.persistance.SystemUserRepo"></bean>
+		<bean id="enduserRepo"
+		class="boundary_of_law.persistance.EndUserRepository"></bean>
 
 		<bean id="enduserRepo"
 		class="boundary_of_law.persistance.EndUserRepository"></bean>
