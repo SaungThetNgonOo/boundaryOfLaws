@@ -35,7 +35,7 @@ public class PdfFileRepository {
 
 	public PDFFile saveFile(PDFFile pdfFile) throws SQLException {
 		String sql = "INSERT INTO pdf_files (name, content) VALUES (?, ?)";
-		try (PreparedStatement ps = con.prepareStatement(sql)) {
+		try (PreparedStatement ps = con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS)) {
 			ps.setString(1, pdfFile.getName());
 			ps.setBytes(2, pdfFile.getContent());
 			int affectedRows = ps.executeUpdate();
