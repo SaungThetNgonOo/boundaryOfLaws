@@ -1,5 +1,4 @@
 package boundary_of_law.models;
-
 public class User {
 	private int user_id;
 	private String name;
