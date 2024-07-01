@@ -80,9 +80,5 @@ public class UserController {
 //			authorRepo.delete(id);//get old author from repo
 //			return "redirect:/authors";
 //		}
-}
 
-			map.addAttribute("systemusers", systemusers);// model
-			return "lawdisplay";// view
-		}
 }
