@@ -78,7 +78,7 @@ public class EndUserController {
 		public String deleteEndUser(@PathVariable int id) {
 
 			enduserRepo.delete(id);
-			return "welcome";
+			return "redirect:/enduser";
 		}
 
 	}

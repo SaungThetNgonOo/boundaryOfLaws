@@ -43,7 +43,7 @@
       <td>${enduser.current_state}</td>
       <td>${enduser.gender}</td>
       <td>${enduser.status}</td>
-      <td><a href="delete">Delete</a>
+      <td><a href="/boundaryOfLaws/deleteenduser/${enduser.id}">Delete</a>
       </td>
       
     </tr>

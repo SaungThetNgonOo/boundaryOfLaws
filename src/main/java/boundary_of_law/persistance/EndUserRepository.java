@@ -81,7 +81,7 @@ public class EndUserRepository {
 //delete
 	public int delete(int id) {
 		int result = 0;
-		String sql = "DELETE FROM endUser WHERE id=?";
+		String sql = "DELETE FROM enduser WHERE id=?";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);

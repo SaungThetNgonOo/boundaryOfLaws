@@ -30,6 +30,8 @@ public class SysemUserController {
 			map.addAttribute("systemusers", systemusers);// model
 			return "lawdisplay";// view
 		}
+		
+		
 		//get are write to the appear form
 //		@GetMapping("addauthor")
 //		public ModelAndView addAuthor() {
