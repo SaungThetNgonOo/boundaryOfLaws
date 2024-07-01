@@ -9,24 +9,19 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
-<link rel="stylesheet" type="text/css" href='<c:url value="/resources/css/bootstrap.min.css"/>'/>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+<link rel="stylesheet" href="resources/css/style.css" />
 <body class="Register">
 	<div class="register_form">
 		<div class="form">
-
- 
-
-			<form:form class="userregistration_form" style="background-color:smoke-white;margin:350px" action="/boundaryOfLaws/addenduser" method="post" modelAttribute="enduser">
+		<form:form class="userregistration_form" style="background-color:smoke-white;margin:350px" action="/boundaryOfLaws/addenduser" method="post" modelAttribute="enduser">
 				<h2>EndUserRegistration</h2>
-
-
-
-				<div class="mb-4">
-					<lable for="id" class="form-label">UserId</lable>
-					<input type="text" class="form-control" name="id" placeholder="ID"
+			<div class="mb-4">
+					<input type="hidden" class="form-control" name="id" placeholder="ID"
 						path="id"></input>
-
-
 				</div>
 
 				<div class="mb-3">
