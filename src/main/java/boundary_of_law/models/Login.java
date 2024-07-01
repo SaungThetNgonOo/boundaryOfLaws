@@ -1,7 +1,6 @@
 package boundary_of_law.models;
 
 import javax.validation.constraints.NotEmpty;
-
 public class Login {
 	@NotEmpty
 	private String email;
