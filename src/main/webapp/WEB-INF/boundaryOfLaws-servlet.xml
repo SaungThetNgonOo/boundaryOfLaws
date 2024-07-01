@@ -31,9 +31,7 @@
 		<bean id="enduserRepo"
 		class="boundary_of_law.persistance.EndUserRepository"></bean>
 
-		<bean id="enduserRepo"
-		class="boundary_of_law.persistance.EndUserRepository"></bean>
-
+		
 	<bean id="pdfFileRepository"
 		class="boundary_of_law.persistance.PdfFileRepository"></bean>
 
