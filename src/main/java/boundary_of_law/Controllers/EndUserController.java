@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import boundary_of_law.models.EndUser;
-import boundary_of_law.repository.EndUserRepository;
+
 
 @Controller
 
 public class EndUserController {
 	@Autowired
-		EndUserRepository enduserRepo;
+		boundary_of_law.persistance.EndUserRepository enduserRepo;
 
-		@RequestMapping("/")
+		@RequestMapping("enduser")
 		public String diaplayAll(ModelMap map) {
 			List<EndUser> endusers = enduserRepo.getAll();
 			//System.out.println("authors :" + authors.size());
@@ -32,7 +32,7 @@ public class EndUserController {
 		}
 
 		@GetMapping("addenduser")
-		public ModelAndView addAuthor() {
+		public ModelAndView addEnduser() {
 			return new ModelAndView("enduser", "enduser", new EndUser());
 
 		}
@@ -50,7 +50,7 @@ public class EndUserController {
 				return "enduser";
 
 			} else {
-				return "redirect:/";
+				return "redirect:/enduser";
 			}
 		}
 

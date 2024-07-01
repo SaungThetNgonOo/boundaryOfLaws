@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div
-				class="d-flex flex-column justify-content-between col-auto bg-dark min-vh-100">
+				class="d-flex flex-column color justify-content-between bg-dark col-auto min-vh-100">
 				<div class="mt-4">
 					<a
 						class="text-white d-none d-sm-inline text-decoration-none d-flex align-items-center ms-4"
@@ -21,7 +21,10 @@
 							aria-current="page"> <i class="fa-solid fa-gauge"></i> <span
 								class="ms-2 d-none d-sm-inline">Laws management</span>
 						</a></li>
-						<li class="nav-item my-1"><a href="#"
+						<li class="nav-item my-1"><a href="/enduser"
+
+						<li class="nav-item my-1"><a href="/boundaryOfLaws/enduser"
+
 							class="nav-link text-white" aria-current="page"> <i
 								class="fa-solid fa-house"></i> <span
 								class="ms-2 d-none d-sm-inline">EndUser management</span>
@@ -48,6 +51,11 @@
 							class="nav-link text-white text-center text-sm-start"
 							aria-current="page"> <i class="fa fa-users"></i> <span
 								class="ms-2 d-none d-sm-inline">CaseType management</span>
+						</a></li>
+						<li class="nav-item my-sm-1 my-2"><a href="#"
+							class="nav-link text-white text-center text-sm-start"
+							aria-current="page"> <i class="fa fa-users"></i> <span
+								class="ms-2 d-none d-sm-inline">User management</span>
 						</a></li>
 					</ul>
 					<a href="/boundaryOfLaws/pdf">Click</a>
