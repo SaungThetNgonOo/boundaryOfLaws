@@ -21,6 +21,10 @@ public class UserController {
 			List<User> users = systemUserRepo.getAll();
 
 			map.addAttribute("user", users);// model
+			List<User> systemusers = systemUserRepo.getAll();
+
+			map.addAttribute("systemusers", systemusers);// model
+
 			return "systemUserDisplay";// view
 		}
 		@RequestMapping("lawDisplay")
@@ -76,4 +80,9 @@ public class UserController {
 //			authorRepo.delete(id);//get old author from repo
 //			return "redirect:/authors";
 //		}
+}
+
+			map.addAttribute("systemusers", systemusers);// model
+			return "lawdisplay";// view
+		}
 }

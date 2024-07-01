@@ -1,4 +1,6 @@
-package boundary_of_law.repository;
+package boundary_of_law.persistance;
+
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,12 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import boundary_of_law.models.EndUser;
-import boundary_of_law.persistance.MyConnection;
+
 
 public class EndUserRepository {
 
-	private static final String Code = null;
-	// connection
+	
 	public static Connection con = null;
 	static {
 		con = MyConnection.getConnection();

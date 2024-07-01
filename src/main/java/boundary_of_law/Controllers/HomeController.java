@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import boundary_of_law.models.User;
+
 @Controller
 public class HomeController {
 	@RequestMapping("/")
